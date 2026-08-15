@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  /* paleta de cores */
+  --color-almendra: #EDDFCF;
+  --color-camelo: #CDA67A;
+  --color-coyote: #76542D;
+  --color-maroon: #7F0605;
+  --color-rosso: #E10B0A;
+
+  /* tipografia */
+  --font-title: 'Belleza', sans-serif;
+  --font-subtitle: 'Manjari', sans-serif;
+  --font-body: 'Manjari', sans-serif;
+  --font-highlight: 'Charm', cursive;
+
+  /* backgeound de imagens */
+  --bg-home: url('/src/assets/imagens/background-home.jpg');
+  --bg-como-funciona: url('/src/assets/imagens/background-como-funciona.jpg');
+  --bg-menu: url('/src/assets/imagens/background-menu.jpg');
+}
+
+@layer base {
+  body {
+    background-color: var(--color-almendra);
+    color: var(--color-coyote);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-title);
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "brg-001",
+    "nome": "Brigadeiro ao Leite Gourmet",
+    "categoria": "brigadeiros",
+    "modalidade": "venda",
+    "descricao": "Chocolate belga 50% coberto com granulado macio.",
+    "preco_unitario": 4.50,
+    "imagem": "/assets/imagens/brigadeiro-tradicional.png"
+  }
+]
