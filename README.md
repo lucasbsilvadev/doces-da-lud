@@ -50,7 +50,3 @@ src/
 Desenvolvido com ❤️ para a Lud
 EOF
 
-# Adicionar e commitar o README
-git add README.md
-git commit -m "Add README.md"
-git push
