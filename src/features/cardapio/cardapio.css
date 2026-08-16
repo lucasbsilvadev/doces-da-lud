@@ -1,0 +1,60 @@
+.carrossel-produtos {
+  --largura-card: 288px;
+  --altura-card: 420px;
+}
+
+.trilho-carrossel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1.5rem;
+  padding: 0.5rem 1.5rem 1.5rem;
+  scrollbar-width: none;
+}
+
+.trilho-carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+.item-carrossel {
+  flex: 0 0 var(--largura-card);
+  height: var(--altura-card);
+  scroll-snap-align: start;
+}
+
+.item-carrossel > * {
+  height: 100%;
+}
+
+.botao-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(205, 166, 122, 0.5);
+  color: var(--color-maroon);
+  box-shadow: 0 4px 14px rgba(127, 6, 5, 0.15);
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.botao-carrossel:hover {
+  background-color: var(--color-maroon);
+  color: var(--color-almendra);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.botao-carrossel.esquerda { left: -8px; }
+.botao-carrossel.direita { right: -8px; }
+
+@media (max-width: 640px) {
+  .botao-carrossel {
+    display: none;
+  }
+}

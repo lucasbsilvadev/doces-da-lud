@@ -1,3 +1,231 @@
-html {
-  scroll-behavior: smooth;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(237, 223, 207, 0.92);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(205, 166, 122, 0.3);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Efeito de sombra mais forte ao rolar (opcional, com JS) */
+header.scrolled {
+  background: rgba(237, 223, 207, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. CONTAINER INTERNO */
+header .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 72px; /* um pouco mais compacto que 80px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+  header .container {
+    padding: 0 1rem;
+    height: 64px;
+  }
+}
+
+/* ============================================
+   LOGO / BRAND
+   ============================================ */
+
+header .brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+header .brand-link:hover {
+  opacity: 0.85;
+}
+
+header .brand-link img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+header .brand-link:hover img {
+  transform: scale(1.05);
+}
+
+header .brand-text {
+  font-family: 'Belleza', cursive;
+  font-size: 1.6rem;
+  color: #7F0605;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+header .brand-link:hover .brand-text {
+  color: #E10B0A;
+}
+
+/* Esconde o texto da marca em telas pequenas */
+@media (max-width: 640px) {
+  header .brand-text {
+    display: none;
+  }
+  header .brand-link img {
+    height: 40px;
+  }
+}
+
+/* ============================================
+   NAVEGAÇÃO (links centrais)
+   ============================================ */
+
+header nav {
+  display: none; /* escondido em mobile por padrão */
+  align-items: center;
+  gap: 2rem;
+  font-family: 'Manjari', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Exibe em telas médias e maiores */
+@media (min-width: 768px) {
+  header nav {
+    display: flex;
+  }
+}
+
+header nav a {
+  color: #7F0605;
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #E10B0A;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+header nav a:hover {
+  color: #E10B0A;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+header nav a:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   BOTÃO DO CARRINHO
+   ============================================ */
+
+header .cart-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #E10B0A;
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 9999px;
+  font-family: 'Manjari', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(225, 11, 10, 0.3);
+}
+
+header .cart-button:hover {
+  background: #7F0605;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(225, 11, 10, 0.35);
+}
+
+header .cart-button:active {
+  transform: scale(0.95) translateY(0);
+  box-shadow: 0 2px 8px rgba(225, 11, 10, 0.2);
+}
+
+/* Esconde o texto "Meu Pedido" em telas pequenas */
+@media (max-width: 640px) {
+  header .cart-button span {
+    display: none;
+  }
+  header .cart-button {
+    padding: 0.6rem 0.9rem;
+    border-radius: 50%;
+  }
+}
+
+/* Ícone SVG dentro do botão */
+header .cart-button svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   BOTÃO HAMBURGUER (para mobile - opcional)
+   ============================================ */
+
+header .hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  header .hamburger {
+    display: none;
+  }
+}
+
+header .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: #7F0605;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+/* animação para "aberto" (controla com estado) */
+header .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+header .hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+header .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }

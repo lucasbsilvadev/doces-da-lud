@@ -1,9 +1,14 @@
-export function gerarLinkWhatsApp({ itens, formaPagamento, tipoEntrega, observacao, valorTotal, telefone = "5511999999999" }) {
-  // cabeçalho da mensagem
-  let mensagem = `*NOVO PEDIDO - DOCES LUD* 🧁\n\n`;
+import { NUMERO_WHATSAPP } from './config';
+
+export function gerarLinkWhatsApp({ itens, formaPagamento, tipoEntrega, observacao, valorTotal, telefone = NUMERO_WHATSAPP }) {
   
-  // lista de itens / preco unitario
-  itens.forEach(item => {
+    // cabeçalho da mensagem
+  
+    let mensagem = `*NOVO PEDIDO - DOCES LUD* \n\n`;
+  
+    // lista de itens / preco unitario
+
+    itens.forEach(item => {
     const subtotal = item.preco_unitario * item.quantidade;
     mensagem += `• ${item.quantidade}x ${item.nome} (R$ ${subtotal.toFixed(2).replace('.', ',')})\n`;
   });

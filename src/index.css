@@ -8,27 +8,75 @@
   --color-maroon: #7F0605;
   --color-rosso: #E10B0A;
 
-  /* tipografia */
-  --font-title: 'Belleza', sans-serif;
-  --font-subtitle: 'Manjari', sans-serif;
-  --font-body: 'Manjari', sans-serif;
-  --font-highlight: 'Charm', cursive;
-
-  /* backgeound de imagens */
-  --bg-home: url('/src/assets/imagens/background-home.jpg');
-  --bg-como-funciona: url('/src/assets/imagens/background-como-funciona.jpg');
-  --bg-menu: url('/src/assets/imagens/background-menu.jpg');
+  /* tipografia — conforme o kit de marca oficial */
+  --font-title: 'Glacial Indifference', sans-serif;   /* títulos principais */
+  --font-subtitle: 'Belleza', sans-serif;              /* subtítulos, selos, destaque */
+  --font-highlight: 'Moontime', cursive;                /* palavra pontual de destaque */
+  --font-body: 'Manjari', sans-serif;                   /* corpo de texto */
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-almendra);
     color: var(--color-coyote);
     font-family: var(--font-body);
+    font-weight: 300;
     overflow-x: hidden;
   }
 
   h1, h2, h3 {
     font-family: var(--font-title);
+  }
+
+  /* rede de segurança global — sobrepõe qualquer animação/transição
+     do site (framer-motion incluso) pra quem pede menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   revelação por scroll — nativa do CSS, sem JS.
+   aplique a classe .reveal em qualquer section/card que deva
+   "entrar" suavemente ao rolar. onde não há suporte, o elemento
+   simplesmente aparece normal (nunca fica escondido).
+------------------------------------------------------------------- */
+@layer utilities {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: revelar-ao-rolar linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+    }
+  }
+}
+
+@keyframes revelar-ao-rolar {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

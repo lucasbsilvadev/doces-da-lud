@@ -1,0 +1,26 @@
+.particula-cacau {
+  position: absolute;
+  top: -5%;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: var(--color-coyote);
+  opacity: 0;
+  animation-name: cair-cacau;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cair-cacau {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.12; }
+  100% { transform: translateY(110vh) translateX(12px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particula-cacau {
+    animation: none;
+    display: none;
+  }
+}

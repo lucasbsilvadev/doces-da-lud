@@ -1,0 +1,106 @@
+/* scrim sobre a imagem de fundo */
+.secao-como-funciona {
+  position: relative;
+  isolation: isolate;
+}
+
+.secao-como-funciona::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.secao-como-funciona > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* cabeçalho — leve profundidade no script cursivo */
+.cabecalho-como-funciona span {
+  text-shadow: 0 2px 10px rgba(127, 6, 5, 0.12);
+}
+
+/* linha conectora com gradiente em vez de traço sólido */
+.linha-conectora {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-camelo) 15%,
+    var(--color-camelo) 85%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* cartão — brilho diagonal sutil no hover */
+.card-passo {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-passo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-15deg);
+  transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.card-passo:hover::before {
+  left: 130%;
+}
+
+.card-passo:hover {
+  box-shadow: 0 20px 40px -12px rgba(127, 6, 5, 0.18);
+}
+
+/* selo numerado — anel pulsante  */
+.numero-badge {
+  position: relative;
+}
+
+.numero-badge::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-rosso);
+  opacity: 0;
+  animation: pulso-badge 2.8s ease-out infinite;
+}
+
+.card-passo:nth-child(2) .numero-badge::after { animation-delay: 0.4s; }
+.card-passo:nth-child(3) .numero-badge::after { animation-delay: 0.8s; }
+
+@keyframes pulso-badge {
+  0% { transform: scale(0.9); opacity: 0.35; }
+  70% { transform: scale(1.25); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ícone */
+.icone-passo {
+  filter: drop-shadow(0 0 10px rgba(225, 11, 10, 0.18));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-passo:hover .icone-passo {
+  transform: translateY(-2px) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numero-badge::after { animation: none; opacity: 0; }
+  .card-passo::before { display: none; }
+  .icone-passo { transition: none; }
+}

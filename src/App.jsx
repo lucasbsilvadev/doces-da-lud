@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // infra / layout
 import { BarreiraDeErro } from './componentes/layout/barreira-de-erros';
-import { ProvedorCarrinho } from './contexto/contexto-carrinho';
+import { ProvedorCarrinho } from './contexto/provedor-carrinho';
 import { LayoutBase } from './componentes/layout/layout-base';
+import { PreCarregamento } from './features/instituição/pre-carregamento/pre-carregamento';
 
 // páginas / features
 import { PaginaPrincipal } from './features/inicio/pagina-principal';
@@ -14,6 +15,7 @@ export function App() {
   return (
     <BarreiraDeErro>
       <BrowserRouter>
+       <PreCarregamento />
         <ProvedorCarrinho>
           <Routes>
             {/* rotas principais dentro do shell de layout */}
