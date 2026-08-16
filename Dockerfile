@@ -24,3 +24,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+=======
+FROM pierrezemb/gostatic
+COPY . /srv/http/
+CMD ["-port","8080","-https-promote", "-enable-logging"]
