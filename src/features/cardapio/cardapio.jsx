@@ -1,11 +1,12 @@
 import { ProdutoGrid } from './produto-grid';
+import { BACKGROUNDS } from '../../utils/assets';
 
 export function Cardapio() {
   return (
     <section 
       id="cardapio" 
       className="relative py-20 w-full bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/imagens/background-menu.png')" }}
+      style={{ backgroundImage: `url(${BACKGROUNDS.menu})` }}
     >
       {/* 
         OVERLAY DE GRADIENTE:

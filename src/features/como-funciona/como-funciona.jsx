@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ShoppingBag, MessageCircle, PartyPopper } from 'lucide-react';
 import './como-funciona.css';
-
+import { BACKGROUNDS } from '../../utils/assets';
 const passos = [
   {
     numero: '1',
@@ -38,7 +38,7 @@ export function ComoFunciona() {
     <section
       id="como-funciona"
       className="secao-como-funciona relative py-24 bg-almendra bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/imagens/background-como-funciona.png')" }}
+      style={{ backgroundImage: `url(${BACKGROUNDS.comoFunciona})` }}
     >
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
