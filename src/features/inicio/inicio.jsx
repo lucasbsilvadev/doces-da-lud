@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import './inicio.css';
+import { BACKGROUNDS } from '../../../utils/assets';
 
 export function Inicio() {
   const referenciaSecao = useRef(null);
@@ -23,7 +24,7 @@ export function Inicio() {
       <motion.div style={{ y: deslocamentoFundo }} className="absolute inset-0 z-0" aria-hidden="true">
         <div
           className="h-[120%] w-full bg-cover bg-center"
-          style={{ backgroundImage: "url('/src/assets/imagens/background-inicio.png')" }}
+          style={{ backgroundImage: `url(${BACKGROUNDS.inicio})` }} 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-maroon via-maroon/70 to-maroon/20" />
       </motion.div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LOGOS } from '../../../utils/assets';
 
 export function Navbar({ aoAbrirCarrinho }) {
   return (
@@ -8,11 +9,11 @@ export function Navbar({ aoAbrirCarrinho }) {
         {/* Logo / Brand */}
         <Link to="/" className="flex items-center gap-2 group">
           <img 
-            src="/src/assets/logos/logo-lud-nobg.png" 
+            src={LOGOS.logoLudNoBg} 
             alt="Doces Lud" 
             className="h-12 w-auto object-contain group-hover:scale-105 transition-transform" 
           />
-          <span className="font-['Belleza'] text-2xl text-[#7F0605] hidden sm:block">
+          <span className="hidden sm:block text-xl font-display text-[#4A2A1A]">
             Doces Lud
           </span>
         </Link>
