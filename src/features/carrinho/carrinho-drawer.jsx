@@ -14,7 +14,7 @@ export function CarrinhoDrawer({ aberto, aoFechar }) {
       formaPagamento: 'A combinar',
       tipoEntrega: 'A combinar',
       valorTotal: valorTotal,
-      telefone: '5561999999999' 
+      telefone: 'NUMERO_WHATSAPP' 
     });
     
     window.open(link, '_blank');
@@ -56,7 +56,6 @@ export function CarrinhoDrawer({ aberto, aoFechar }) {
             </div>
           ) : (
             <ul className="space-y-4">
-              {/* Olha a mágica da componentização aqui: */}
               {carrinho.map((item) => (
                 <CarrinhoItem key={item.id} item={item} />
               ))}
