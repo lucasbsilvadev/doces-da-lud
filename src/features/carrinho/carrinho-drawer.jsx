@@ -1,6 +1,7 @@
 import { CarrinhoItem } from './carrinho-item';
 import { useCarrinho } from '../../hooks/usar-carrinho';
 import { gerarLinkWhatsApp } from '../../utils/formatador-whatsapp';
+import { NUMERO_WHATSAPP } from '../../utils/config';
 
 export function CarrinhoDrawer({ aberto, aoFechar }) {
   // Tiramos o removerItem e atualizarQuantidade daqui, pois o CarrinhoItem já cuida disso!
@@ -14,7 +15,7 @@ export function CarrinhoDrawer({ aberto, aoFechar }) {
       formaPagamento: 'A combinar',
       tipoEntrega: 'A combinar',
       valorTotal: valorTotal,
-      telefone: 'NUMERO_WHATSAPP' 
+      telefone: NUMERO_WHATSAPP
     });
     
     window.open(link, '_blank');

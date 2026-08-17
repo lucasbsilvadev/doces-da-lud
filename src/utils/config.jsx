@@ -1,4 +1,5 @@
-export const NUMERO_WHATSAPP = import.meta.env.VITE_NUMERO_WHATSAPP;
+// src/utils/config.jsx
+export const NUMERO_WHATSAPP = '5561991413865';
 
 if (!NUMERO_WHATSAPP && import.meta.env.DEV) {
   console.warn(

@@ -53,7 +53,7 @@ header .brand-link:hover {
 }
 
 header .brand-link img {
-  height: 44px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -81,7 +81,7 @@ header .brand-link:hover .brand-text {
     display: none;
   }
   header .brand-link img {
-    height: 40px;
+    height: 70px;
   }
 }
 

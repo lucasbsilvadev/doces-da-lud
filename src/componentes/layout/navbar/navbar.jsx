@@ -11,7 +11,7 @@ export function Navbar({ aoAbrirCarrinho }) {
           <img 
             src={LOGOS.logoLudNoBg}  
             alt="Doces Lud" 
-            className="h-12 w-auto object-contain group-hover:scale-105 transition-transform" 
+            className="h-20 w-auto object-contain group-hover:scale-105 transition-transform" 
           />
           <span className="font-['Belleza'] text-2xl text-[#7F0605] hidden sm:block">
             Doces Lud
