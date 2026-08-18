@@ -4,23 +4,22 @@ import { gerarLinkWhatsApp } from '../../utils/formatador-whatsapp';
 import { NUMERO_WHATSAPP } from '../../utils/config';
 
 export function CarrinhoDrawer({ aberto, aoFechar }) {
-  // Tiramos o removerItem e atualizarQuantidade daqui, pois o CarrinhoItem já cuida disso!
   const { carrinho, valorTotal } = useCarrinho();
 
-  const handleFinalizarPedido = () => {
-    if (carrinho.length === 0) return;
-    
-    const link = gerarLinkWhatsApp({
-      itens: carrinho,
-      formaPagamento: 'A combinar',
-      tipoEntrega: 'A combinar',
-      valorTotal: valorTotal,
-      telefone: NUMERO_WHATSAPP
-    });
-    
-    window.open(link, '_blank');
-  };
+const handleFinalizarPedido = () => {
+  if (carrinho.length === 0) return;
+  
+  const link = gerarLinkWhatsApp({
+    itens: carrinho,
+    formaPagamento: 'A combinar',
+    tipoEntrega: 'A combinar',
+    valorTotal: valorTotal,
+    telefone: NUMERO_WHATSAPP
+  });
+  
 
+  window.open(link, '_blank');
+};
   return (
     <>
       {/* fundo escuro (overlay) - Clicar nele fecha o carrinho */}
