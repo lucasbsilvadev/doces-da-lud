@@ -1,4 +1,4 @@
-cat > README.md << EOF
+
 # Doces Lud
 
 Site de doces artesanais da Lud.
