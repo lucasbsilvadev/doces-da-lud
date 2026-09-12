@@ -1,5 +1,5 @@
 cat > README.md << EOF
-# 🍰 Doces Lud
+# Doces Lud
 
 Site de doces artesanais da Lud.
 
