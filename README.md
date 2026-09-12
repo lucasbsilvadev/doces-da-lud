@@ -39,7 +39,7 @@ src/
 └── utils/
 \`\`\`
 
-## 📱 funcionalidades (em construção)
+## funcionalidades (em construção)
 
 - [x] Catálogo de produtos
 - [x] Carrinho de compras
